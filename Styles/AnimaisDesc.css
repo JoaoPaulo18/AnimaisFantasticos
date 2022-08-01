@@ -1,0 +1,93 @@
+.Animais__Container{
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.Animais__Imgs{
+  max-width: 300px;
+  max-height: 378px;
+  overflow-y: scroll;
+  padding-right: .3rem;
+  display: grid;
+}
+.Animais__Imgs::-webkit-scrollbar{
+  background: white;
+  width: 11px;
+}
+.Animais__Imgs::-webkit-scrollbar-track{
+  background: white;
+  padding: 1rem;
+}
+.Animais__Imgs::-webkit-scrollbar-thumb{
+  background: #fb5;
+  border-radius: 8px;
+  
+}
+.Animais__Imgs img{
+  max-width: 100%;
+  cursor: pointer;
+}
+.Animais__Texts{
+  overflow: hidden;
+  position: relative;
+  height: max-content;
+}
+
+.Text__single{
+  pointer-events: none;
+  display: none;
+  opacity: 0;
+}
+.Text__single.Active{
+  display: block;
+  pointer-events: all;
+  animation: ActiveText .4s forwards;
+}
+@keyframes ActiveText {
+  to{
+    transform: translate(0,0);
+    opacity: 1;
+  }
+}
+
+.Text__single[data-Anim='top']{
+  transform: translateY(70px);
+}
+.Text__single[data-Anim='left']{
+  transform: translateX(70px);
+}
+.Text__single[data-Anim='right']{
+  transform: translateX(-70px);
+}
+
+.Description{
+  font-weight: 600;
+  max-width: 50ch;
+  color: rgba(44, 44, 44, .6);
+  margin-top: 1rem;
+}
+
+.Name__Animal{
+  text-transform: uppercase;
+  font-size: .95rem;
+  color: #e54;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Name__Animal::before{
+  content: '';
+  width: 35px;
+  height: 8px;
+  background: #fb5;
+  display: block;
+}
+@media (max-width:450px) {
+  .Animais__Container{
+    flex-direction: column;
+    align-items: center;
+  }
+  
+}

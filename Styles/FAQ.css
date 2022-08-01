@@ -1,0 +1,68 @@
+.Faq{
+  display: grid;
+}
+
+.Faq__Container{
+  margin-top: 2rem;
+  margin-left: 4rem;
+}
+.Faq__List{
+  display: grid;
+  gap: 1rem;
+}
+
+.Faq__Quest{
+  color: #e54;
+  font-weight: 900;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
+  transition:background .3s;
+}
+.Faq__Quest:hover{
+  background: rgba(222, 222, 222, .8);
+}
+.Faq__Quest::before{
+  content: '';
+  display: block;
+  width: 15px;
+  height: 8px;
+  background: #fb5;
+}
+.Faq__Quest::after{
+  content:"➜";
+  transform: rotate(90deg);
+  display: block;
+  transition:ease .3s;
+}
+.Faq__Answer{
+  overflow-y: hidden;
+  display: none;
+  transition: .4s;
+  max-width: 70ch;
+  margin-left: 1rem;
+  font-weight: 700;
+  color: rgba(44, 44, 44, .7);
+}
+
+.Faq__Quest.clicked + .Faq__Answer{
+  display: block;
+  animation: Accordion ease .8s forwards;
+}
+.Faq__Quest.clicked::after{
+  transform: rotate(0);
+}
+@keyframes Accordion {
+  0%{
+   display: block;
+  opacity: 0;
+  }
+}
+
+@media (max-width:550px) {
+    .Faq__Container{
+      margin-left: 0;
+    }
+}

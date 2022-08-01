@@ -1,0 +1,27 @@
+.NumerosAnimais{
+  display: grid;
+  gap: 2rem;
+}
+
+.Numeros__Container{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 2rem;
+}
+.Animais__Single{
+  display: grid;
+  gap: .5rem;
+}
+.Animais__Name{
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(44, 44, 44, .95);
+}
+.Animais__Numero{
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #e54;
+}

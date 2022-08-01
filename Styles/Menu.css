@@ -1,0 +1,146 @@
+.Menu__Btn{
+  display: none;
+}
+.Menu__SubMenu{
+  display: grid;
+  gap: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: .3s;
+  background:#e54;
+  padding: 1rem;
+  padding-right: 2rem;
+  border: 2px solid #000;
+  position: absolute;
+  top: 23px;
+  left: -10px;
+  z-index: 10000;
+
+}
+.Menu__SubMenu li a{
+  font-size: 1.1rem;
+}
+.Menu__SubMenu li a:hover{
+  color: #fff;
+}
+.Menu__SubMenu::before{
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+  border-bottom: 10px solid #e54;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+.Header{
+  padding: 2rem 0;
+}
+.Menu__Container{
+  display: grid;
+  grid-template-columns: minmax(20%, 30%) 1fr;
+}
+.Menu__BG{
+  background: #fb5;
+  padding: 1.25rem;
+}
+.Menu__Ul{
+  display: flex;
+  gap: 2rem;
+}
+.Menu__Ul li a{
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+}
+.Menu__Ul #Login a{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  transition: .3s;
+}
+.Menu__Ul #Login a:hover{
+  gap: 15px;
+} 
+.Menu__Ul #Login a::after{
+  content: '→';
+  font-size: .8rem;
+  display: block;
+  color: black;
+}
+.SubMenu__Container{
+  position: relative;
+}
+@media (min-width:680px) {
+  .SubMenu__Container:hover .Menu__SubMenu{
+    pointer-events: all;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.SubMenu__Container.active .Menu__SubMenu{
+pointer-events: all;
+opacity: 1;
+transform: translateY(0);
+}
+
+@media (max-width:560px) {
+  .Header{
+    padding: 0;
+  }
+  .Menu__Container{
+    grid-template-columns: 1fr;
+  }
+  .Menu__Btn{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    position: relative;
+    z-index: 1001;
+    cursor: pointer;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    background: #000;
+    color: white;
+    padding: .4rem;
+  }
+  .Menu__Btn.clicked .Menu__Bars{
+    transform: rotate(90deg);
+  }
+  .Menu__Bars{
+    display: grid;
+    gap: 2px;
+    transition: .3s;
+  }
+  .Menu__Bars span{
+    width: 10px;
+    height: 2px;
+    background: white;
+    display: block;
+  }
+  .Menu__Ul{
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background: #fb5;
+    padding: 5rem 0 1rem 1.5rem;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 4px 4px 15px 0 rgba(44, 44, 44, .5);
+    transition: all .3s;
+    z-index: 1000;
+  }
+  .Menu__Ul > li {
+    margin-right: 5rem;
+  }
+  .SubMenu__Container li a{
+    font-size: .8rem;
+
+  }
+  .Menu__Btn.clicked + .Menu__Ul{
+    left: 0;
+  }
+}
